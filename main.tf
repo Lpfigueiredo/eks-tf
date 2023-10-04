@@ -220,6 +220,7 @@ resource "helm_release" "argocd" {
   version    = "5.24.1"
   namespace  = kubernetes_namespace.argocd.metadata.0.name
   depends_on = [
-    kubernetes_namespace.argocd
+    kubernetes_namespace.argocd,
+    helm_release.alb-controller
   ]
 }
